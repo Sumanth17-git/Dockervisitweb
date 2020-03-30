@@ -1,0 +1,12 @@
+version: '3'
+services:
+# Install Redis image and start the redis
+     redis-server:
+      image: 'redis'
+# use the build file from the current directory to install and start the nodejs application
+     node-app: 
+# Restart polciy if container failes for any reson, it attempt to restart as per the policy      
+      restart: always
+      build: .
+      ports:
+       - "8081:8081"
